@@ -8,7 +8,20 @@ class CompaniesController < ApplicationController
     @companies = Company.find(params[:id])
   end
 
+  def new
+    @companies = Company.new
+  end
 
+  def create
+    @companies = Company.new(company_params)
+   
+
+    if @companies.save
+      redirect_to companies_path, notice: "Company was created"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
 
 

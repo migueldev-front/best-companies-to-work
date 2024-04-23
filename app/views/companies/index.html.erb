@@ -1,6 +1,20 @@
 
-<ul>
-  <% @companies.each do |company| %>
-    <li><%= company.name %></li>
-  <% end %>
-</ul>
+
+
+
+<div class="container-md">
+  <div class="row my-4 justify-content-center">
+    <div class="col-12 col-md-4">
+
+      <% @companies.each do |company| %>
+        <div class="col mb-4">
+          <%= link_to company_path(company) do %>
+            <%= render 'card', company: company %>
+          <% end %>
+        </div>
+      <% end %>
+      <%= link_to "New Company", new_company_path %>
+
+    </div>
+  </div>
+</div>
