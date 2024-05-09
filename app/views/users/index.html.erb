@@ -1,6 +1,6 @@
 
 <ul>
-  <%= @users.each do |user| =%>
+  <%= @users.each_with_index do |user, index| =%>
     <li> <%= user.email %> </li>
     <li> <%= user.username %></li>
   <% end %>
