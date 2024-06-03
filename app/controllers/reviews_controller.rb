@@ -1,27 +1,25 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @reviews = Review.new
-  end
 
-  def create
-    @reviews = Review.new(review_params)
+def index
+  @reviews = Review.all
+end
 
-    if @reviews.save
-      redirect_to review_path, notice: "Review was created!"
-    else
-      render :new, status: :unprocessable_entity
-    end
+def show
+  @reviews = Review.find(params[:id])
+end
 
-  end
+def new
+  @reviews = Review.new
+end
 
 
 
-  private
+private
 
+def review_params
+  params.require(:review).permit(:comment)
+end
 
-  def review_params
-    params.require(:review).permit(:content)
-  end
 
 end
