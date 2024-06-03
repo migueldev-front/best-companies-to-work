@@ -7,8 +7,10 @@
 
 
       <h2> <%= @companies.name %></h2>
-      <p> <%= @companies.address %></p>
       <p> <%= @companies.sector %></p>
+      <p> <%= @companies.address %></p>
+
+   
 
       <%= link_to "Edit", edit_company_path(@companies) %>
       <%= link_to "Destroy", company_path(@companies),
